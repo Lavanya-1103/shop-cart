@@ -1,0 +1,130 @@
+.navbar {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 72px;
+    padding: 0 clamp(20px, 5vw, 72px);
+    border-bottom: 1px solid;
+    box-sizing: border-box;
+    transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+.navbar.light {
+    border-color: #e3ded4;
+    background: rgba(255, 253, 248, 0.94);
+    color: #1c2d40;
+}
+
+.navbar.dark {
+    border-color: #303b43;
+    background: #17232b;
+    color: #f4f0e8;
+}
+
+.nav-logo {
+    color: inherit;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    letter-spacing: -0.06em;
+    text-decoration: none;
+}
+
+.nav-logo span {
+    color: #d16b32;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: clamp(14px, 2.2vw, 30px);
+}
+
+.nav-links a {
+    position: relative;
+    padding: 26px 0 23px;
+    color: inherit;
+    font-size: 0.88rem;
+    font-weight: 650;
+    text-decoration: none;
+    transition: color 160ms ease;
+}
+
+.nav-links a::after {
+    position: absolute;
+    right: 0;
+    bottom: 15px;
+    left: 0;
+    height: 2px;
+    content: '';
+    background: #d16b32;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 160ms ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #d16b32;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.theme-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 34px;
+    padding: 7px 12px;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 700;
+    transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.theme-toggle-btn:hover {
+    background: #d16b32;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.theme-toggle-btn:focus-visible {
+    outline: 3px solid rgba(209, 107, 50, 0.35);
+    outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+    .navbar {
+        min-height: auto;
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px 16px 10px;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 5px 16px;
+    }
+
+    .nav-links a {
+        padding: 5px 0 9px;
+        font-size: 0.8rem;
+    }
+
+    .nav-links a::after {
+        bottom: 3px;
+    }
+}
