@@ -45,6 +45,9 @@ const ProductCard = ({title, price, image, category}) => {
           </select>
         </div>
         <p className="product-card__price">Rs. {price}</p>
+        <button type="button" className="product-card__button">
+          Add to cart
+        </button>
       </div>
     </article>
   )
