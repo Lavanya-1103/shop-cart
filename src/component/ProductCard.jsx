@@ -50,4 +50,4 @@ const ProductCard = ({title, price, image, category}) => {
   )
 }
 
-export default ProductCard
+export default  React.memo (ProductCard);

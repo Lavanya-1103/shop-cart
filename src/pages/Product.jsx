@@ -1,7 +1,9 @@
 import React from 'react'
 import ProductCard from '../component/ProductCard'
 import { useEffect, useState } from 'react'
-import './Product.css'
+import './Product.css'  
+import {useMemo } from 'react'
+import {useCallback } from 'react'
 
 
 const Product = () => {
@@ -12,7 +14,17 @@ const Product = () => {
       .then(res => res.json())
       .then(data => setProducts(data))        
   }, [])
-  
+
+
+  const filteredProducts = useMemo(() => {
+    return products.filter(p => p.price < 0);
+  }, [products]);
+
+  const handleclick = useCallback((title) => {
+    console.log (title);
+  }, []);
+
+
   return (
     <main className="products-page">
       <header className="products-page__header">
@@ -36,7 +48,8 @@ const Product = () => {
                 title={product.title}
                 price={product.price}
                 image={product.image}
-                category={product.category}
+                onClick={ () => handleclick(product.title)}
+              
               />
             ))}
           </section>
@@ -48,4 +61,4 @@ const Product = () => {
   )
 }
 
-export default Product
+export default Product;

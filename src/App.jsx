@@ -4,6 +4,8 @@ import { Outlet } from "react-router-dom";
 import Navbar from './component/Navbar';
 import { useContext } from 'react';
 import { ThemeContext } from './context/ThemeContext';
+import ErrorBoundary from './component/ErrorBoundary';
+import UserProfile from './pages/UserProfile';
 
 
 
@@ -27,6 +29,10 @@ function App() {
      <Navbar/>
      <Outlet />
     </div>
+
+
+
+
   );
 }
 
